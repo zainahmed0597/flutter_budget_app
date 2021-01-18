@@ -15,7 +15,7 @@ class BarChart extends StatelessWidget {
     });
 
     return Padding(
-      padding: EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(8.0),
       child: Column(
         children: [
           Text(
@@ -30,7 +30,7 @@ class BarChart extends StatelessWidget {
             height: 5.0,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
                 icon: Icon(Icons.arrow_back),

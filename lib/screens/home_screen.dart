@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_budget_app/data/data.dart';
+import 'package:flutter_budget_app/models/category_model.dart';
 import 'package:flutter_budget_app/widget/bar_chart.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,23 +42,27 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return Container(
-                  margin: EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        offset: Offset(0, 2),
-                        blurRadius: 6.0,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: BarChart(weeklySpending),
-                );
+                if (index == 0) {
+                  return Container(
+                    margin: EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 10.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          offset: Offset(0, 2),
+                          blurRadius: 6.0,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: BarChart(weeklySpending),
+                  );
+                } else {
+                  final Category category = categories[index - 1];
+                }
               },
-              childCount: 1,
+              childCount: 1 + categories.length,
             ),
           ),
         ],
